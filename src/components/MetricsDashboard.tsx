@@ -141,7 +141,7 @@ export default function MetricsDashboard({ results }: Props) {
                   fontSize: 13,
                   padding: '10px 14px',
                 }}
-                formatter={(value: number) => fmt(value)}
+                formatter={(value) => fmt(Number(value))}
               />
               <Legend wrapperStyle={{ fontSize: 13, color: '#9ca3af', paddingTop: 8 }} />
               <Line type="monotone" dataKey="Interne" stroke="#f59e0b" strokeWidth={2.5} dot={false} />
@@ -174,7 +174,7 @@ export default function MetricsDashboard({ results }: Props) {
                   fontSize: 13,
                   padding: '10px 14px',
                 }}
-                formatter={(value: number) => `${value}%`}
+                formatter={(value) => `${Number(value)}%`}
               />
               <Legend wrapperStyle={{ fontSize: 13, color: '#9ca3af', paddingTop: 8 }} />
               <defs>
