@@ -32,7 +32,13 @@
       "Bash(GIT_CONFIG_NOSYSTEM=1 /usr/bin/git -C \"/Users/vwelschinger/Library/CloudStorage/GoogleDrive-vwelschinger@gmail.com/Mon Drive/Revolution On The Run/Deluxe Conseil/02. Com Interne/comparateur\" rev-parse --is-inside-work-tree)",
       "Bash(sudo xcode-select:*)",
       "Bash(/usr/bin/git --version)",
-      "Bash(/usr/local/bin/git --version)"
+      "Bash(/usr/local/bin/git --version)",
+      "Bash(ls ~/.ssh/*.pub)",
+      "Bash(/usr/local/bin/gh --version)",
+      "Bash(gh auth:*)",
+      "Bash(gh repo:*)",
+      "Bash(npm --version)",
+      "Bash(npm ci:*)"
     ]
   }
 }

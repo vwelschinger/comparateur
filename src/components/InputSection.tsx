@@ -64,8 +64,8 @@ export default function InputSection({ config, onChange, onAnalyse, onReset, loa
   }
 
   return (
-    <div className="filter-panel rounded-2xl p-7 w-full animate-fade-in">
-      <div className="grid grid-cols-4 gap-8">
+    <div className="filter-panel rounded-2xl w-full animate-fade-in">
+      <div className="filters-grid">
 
         {/* ── Col 1 : Profil ── */}
         <div>

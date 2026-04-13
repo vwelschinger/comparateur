@@ -56,9 +56,9 @@ export default function App() {
   return (
     <div className="min-h-screen bg-dark-bg overflow-x-hidden">
       {/* Navbar */}
-      <nav className="glass-strong sticky top-0 z-40 flex items-center justify-between" style={{ padding: '1rem 2rem' }}>
-        <div className="flex items-center gap-5">
-          <Logo className="h-11 w-auto" />
+      <nav className="glass-strong sticky top-0 z-40 nav-padding flex items-center justify-between">
+        <div className="flex items-center gap-4">
+          <Logo className="h-9 w-auto sm:h-11" />
           <div className="hidden sm:block h-7 w-px bg-dark-border" />
           <span className="hidden sm:block text-[15px] text-gray-400 font-medium">
             Arbitrage RH
@@ -66,15 +66,17 @@ export default function App() {
         </div>
         <button
           onClick={() => setModalOpen(true)}
-          className="btn-secondary text-[15px] px-5 py-2.5"
+          className="btn-secondary text-[13px] sm:text-[15px]"
+          style={{ padding: '0.5rem 0.875rem' }}
         >
-          <CalendarCheck size={18} />
-          Réserver un Audit
+          <CalendarCheck size={16} />
+          <span className="hidden sm:inline">Réserver un Audit</span>
+          <span className="sm:hidden">Audit</span>
         </button>
       </nav>
 
       {/* Main content */}
-      <main className="flex flex-col gap-6 w-full box-border" style={{ padding: '2rem 3rem 3rem' }}>
+      <main className="main-padding flex flex-col gap-5 w-full box-border">
         <InputSection
           config={config}
           onChange={setConfig}

@@ -59,7 +59,7 @@ export default function MetricsDashboard({ results }: Props) {
   return (
     <div className="space-y-6 animate-fade-in">
       {/* KPIs */}
-      <div className="grid grid-cols-3 gap-6">
+      <div className="kpi-grid">
         <KPICard
           label="Coût Total Interne (1 an)"
           value={fmt(results.coutInterne)}
@@ -92,7 +92,7 @@ export default function MetricsDashboard({ results }: Props) {
           <Receipt size={18} className="text-deluxe" />
           Décomposition mensuelle
         </h3>
-        <div className="grid grid-cols-2 gap-x-6 gap-y-3 text-[13px]">
+        <div className="breakdown-grid text-[13px]">
           <div className="flex justify-between text-gray-400 min-w-0">
             <span className="truncate mr-2">Salaire chargé</span>
             <span className="text-warning font-semibold whitespace-nowrap">{fmt(breakdown.salaireCharge)}</span>
@@ -117,7 +117,7 @@ export default function MetricsDashboard({ results }: Props) {
       </div>
 
       {/* Charts */}
-      <div className="grid grid-cols-2 gap-6">
+      <div className="charts-grid">
         {/* Cost comparison */}
         <div className="glass rounded-2xl" style={{ padding: '2rem' }}>
           <h3 className="flex items-center gap-3 text-[15px] font-semibold text-gray-300 mb-6">
