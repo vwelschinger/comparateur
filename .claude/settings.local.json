@@ -1,0 +1,38 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm create:*)",
+      "Bash(npx --yes create-vite@6.0.0 . --template react-ts)",
+      "Bash(npm install:*)",
+      "Bash(npx tsc:*)",
+      "Bash(npx vite:*)",
+      "WebFetch(domain:www.ignition-program.com)",
+      "WebFetch(domain:www.urssaf.fr)",
+      "WebFetch(domain:www.deluxeconseil.fr)",
+      "Bash(netstat -ano)",
+      "Bash(taskkill:*)",
+      "Bash(npm run:*)",
+      "Bash(curl -s http://localhost:5173)",
+      "Read(//Users/vwelschinger/.nvm/versions/**)",
+      "Read(//opt/homebrew/opt/**)",
+      "Read(//usr/local/**)",
+      "Read(//opt/homebrew/bin/**)",
+      "Bash(ls ~/.nvm/versions/node/*/bin/npm)",
+      "Bash(/usr/bin/env node:*)",
+      "Bash(mdfind -name \"node\" kind:executable)",
+      "Bash(grep -E \"bin/node$\")",
+      "Bash(pkgutil --pkgs)",
+      "Bash(/usr/local/bin/brew install:*)",
+      "Bash(export PATH=\"/usr/local/bin:$PATH\")",
+      "Bash(/usr/local/bin/npm run:*)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:5173)",
+      "Bash(chmod -R +x \"/Users/vwelschinger/Library/CloudStorage/GoogleDrive-vwelschinger@gmail.com/Mon Drive/Revolution On The Run/Deluxe Conseil/02. Com Interne/comparateur/node_modules/.bin/\")",
+      "Bash(/usr/local/bin/npm install:*)",
+      "Bash(/usr/bin/git -C \"/Users/vwelschinger/Library/CloudStorage/GoogleDrive-vwelschinger@gmail.com/Mon Drive/Revolution On The Run/Deluxe Conseil/02. Com Interne/comparateur\" status)",
+      "Bash(GIT_CONFIG_NOSYSTEM=1 /usr/bin/git -C \"/Users/vwelschinger/Library/CloudStorage/GoogleDrive-vwelschinger@gmail.com/Mon Drive/Revolution On The Run/Deluxe Conseil/02. Com Interne/comparateur\" rev-parse --is-inside-work-tree)",
+      "Bash(sudo xcode-select:*)",
+      "Bash(/usr/bin/git --version)",
+      "Bash(/usr/local/bin/git --version)"
+    ]
+  }
+}
