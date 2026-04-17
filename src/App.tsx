@@ -45,7 +45,7 @@ export default function App() {
         <div className="flex items-center gap-4">
           <Logo className="h-9 w-auto sm:h-11" />
           <div className="hidden sm:block h-7 w-px bg-dark-border" />
-          <span className="hidden sm:block text-[15px] text-gray-400 font-medium">
+          <span className="hidden sm:block text-[19px] text-gray-200 font-bold uppercase tracking-widest">
             Dois-je externaliser ?
           </span>
         </div>
@@ -61,7 +61,7 @@ export default function App() {
       </nav>
 
       {/* Main content */}
-      <main className="main-padding flex flex-col gap-5 w-full box-border">
+      <main className="main-padding flex flex-col gap-10 w-full box-border">
         <InputSection
           config={config}
           onChange={setConfig}

@@ -62,7 +62,7 @@ export default function InputSection({ config, onChange, onReset }: Props) {
   }
 
   return (
-    <div className="space-y-4 w-full animate-fade-in">
+    <div className="space-y-6 w-full animate-fade-in">
       {/* Grille 3 colonnes : Profil / Coûts salariaux / Coûts opérationnels */}
       <div className="filter-panel rounded-2xl w-full">
         <div className="filters-grid">
