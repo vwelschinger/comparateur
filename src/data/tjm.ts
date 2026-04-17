@@ -19,29 +19,17 @@ export interface TJMConfig {
  * Clés = valeurs du tableau DOMAINES dans types.ts.
  */
 export const TJM_PAR_DOMAINE: Record<string, TJMConfig> = {
-  Marketing: {
-    base: 750,
-    label: 'Expert Marketing Senior',
-  },
   Commerce: {
     base: 800,
     label: 'Expert Commercial Senior',
   },
-  RH: {
-    base: 700,
-    label: 'Expert RH Senior',
+  Marketing: {
+    base: 750,
+    label: 'Expert Marketing Senior',
   },
-  Finance: {
-    base: 900,
-    label: 'Expert Finance / DAF externalisé',
-  },
-  IT: {
-    base: 850,
-    label: 'Expert Tech / Dev Senior',
-  },
-  Communication: {
-    base: 700,
-    label: 'Expert Communication Senior',
+  'Gestion de Projets': {
+    base: 800,
+    label: 'Expert Gestion de Projets Senior',
   },
 };
 

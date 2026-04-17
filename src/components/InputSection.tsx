@@ -1,6 +1,6 @@
 import { useMemo } from 'react';
 import {
-  Building2, Briefcase, DollarSign, Clock, RotateCcw, Sparkles, Monitor, Users, GraduationCap,
+  Building2, Briefcase, DollarSign, Clock, RotateCcw, Monitor, Users, GraduationCap,
 } from 'lucide-react';
 import type { SimulationConfig, ContractType, Seniorite } from '../types';
 import {
@@ -11,9 +11,7 @@ import { getPostesParDomaine, getSalaireSuggere, getFourchette, getTJM } from '.
 interface Props {
   config: SimulationConfig;
   onChange: (config: SimulationConfig) => void;
-  onAnalyse: () => void;
   onReset: () => void;
-  loading: boolean;
 }
 
 const inputClass =
@@ -36,7 +34,7 @@ function fmt(n: number): string {
   return n.toLocaleString('fr-FR');
 }
 
-export default function InputSection({ config, onChange, onAnalyse, onReset, loading }: Props) {
+export default function InputSection({ config, onChange, onReset }: Props) {
   const postes = useMemo(() => getPostesParDomaine(config.domaine), [config.domaine]);
 
   const fourchette = useMemo(
@@ -253,16 +251,13 @@ export default function InputSection({ config, onChange, onAnalyse, onReset, loa
           {/* Actions */}
           <div className="flex gap-2 mt-8">
             <button
-              onClick={onAnalyse}
-              disabled={loading}
-              className="btn-primary flex-1 text-[13px]"
+              onClick={onReset}
+              className="btn-icon w-full flex items-center justify-center gap-2 text-[13px]"
+              title="Réinitialiser"
               style={{ padding: '0.5rem 1rem' }}
             >
-              <Sparkles size={14} />
-              {loading ? 'Analyse...' : 'Analyser'}
-            </button>
-            <button onClick={onReset} className="btn-icon" title="Réinitialiser" style={{ padding: '0.5rem 0.75rem' }}>
               <RotateCcw size={14} />
+              Réinitialiser
             </button>
           </div>
         </div>

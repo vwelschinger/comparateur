@@ -60,7 +60,7 @@ export const SECTEURS = [
   'Intégration & Services numériques',
 ];
 
-export const DOMAINES = ['Marketing', 'Commerce', 'RH', 'Finance', 'IT', 'Communication'];
+export const DOMAINES = ['Commerce', 'Marketing', 'Gestion de Projets'];
 
 export const CONTRACT_LABELS: Record<ContractType, string> = {
   alternance: 'Alternance',

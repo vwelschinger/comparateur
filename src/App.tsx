@@ -3,54 +3,39 @@ import { CalendarCheck } from 'lucide-react';
 import Logo from './components/Logo';
 import InputSection from './components/InputSection';
 import MetricsDashboard from './components/MetricsDashboard';
-import AIAnalysisCard from './components/AIAnalysis';
 import ContactModal from './components/ContactModal';
-import { analyserStrategie } from './services/aiService';
 import { computeResults } from './services/calculateur';
 import { getPostesParDomaine, getSalaireSuggere } from './data';
-import type { SimulationConfig, AIAnalysis } from './types';
+import type { SimulationConfig } from './types';
 
-const defaultPoste = getPostesParDomaine('Marketing')[0] ?? '';
-const defaultSalaire = getSalaireSuggere('Marketing', defaultPoste, 'confirme', 'cdi') ?? 2800;
+const defaultDomaine = 'Commerce';
+const defaultPoste = getPostesParDomaine(defaultDomaine)[0] ?? '';
+const defaultSalaire =
+  getSalaireSuggere(defaultDomaine, defaultPoste, 'senior', 'cdi') ?? 6100;
 
 const DEFAULT_CONFIG: SimulationConfig = {
   secteur: 'IT, Telecom & Digital',
   nombrePostes: 1,
-  domaine: 'Marketing',
+  domaine: defaultDomaine,
   titrePoste: defaultPoste,
-  seniorite: 'confirme',
+  seniorite: 'senior',
   typeContrat: 'cdi',
   salaireBrut: defaultSalaire,
-  coutRecrutement: 5000,
-  coutMateriel: 1500,
-  tauxHoraireManager: 60,
-  heuresFormationSemaine: 4,
-  joursParMois: 10,
+  coutRecrutement: 8000,
+  coutMateriel: 2000,
+  tauxHoraireManager: 75,
+  heuresFormationSemaine: 6,
+  joursParMois: 8,
 };
 
 export default function App() {
   const [config, setConfig] = useState<SimulationConfig>(DEFAULT_CONFIG);
-  const [analysis, setAnalysis] = useState<AIAnalysis | null>(null);
-  const [aiLoading, setAiLoading] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
 
   const results = useMemo(() => computeResults(config), [config]);
 
-  const handleAnalyse = useCallback(async () => {
-    setAiLoading(true);
-    try {
-      const result = await analyserStrategie(config);
-      setAnalysis(result);
-    } catch (err) {
-      console.error('AI Analysis error:', err);
-    } finally {
-      setAiLoading(false);
-    }
-  }, [config]);
-
   const handleReset = useCallback(() => {
     setConfig(DEFAULT_CONFIG);
-    setAnalysis(null);
   }, []);
 
   return (
@@ -80,26 +65,10 @@ export default function App() {
         <InputSection
           config={config}
           onChange={setConfig}
-          onAnalyse={handleAnalyse}
           onReset={handleReset}
-          loading={aiLoading}
         />
 
         <MetricsDashboard results={results} />
-
-        <AIAnalysisCard analysis={analysis} loading={aiLoading} />
-
-        {analysis && !aiLoading && (
-          <div className="flex justify-center animate-fade-in pb-4">
-            <button
-              onClick={() => setModalOpen(true)}
-              className="btn-cta text-[16px] px-8 py-4 rounded-2xl"
-            >
-              <CalendarCheck size={20} />
-              Réserver un Audit Personnalisé
-            </button>
-          </div>
-        )}
       </main>
 
       <ContactModal open={modalOpen} onClose={() => setModalOpen(false)} />
