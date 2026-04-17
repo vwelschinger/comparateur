@@ -61,7 +61,7 @@ export default function App() {
       </nav>
 
       {/* Main content */}
-      <main className="main-padding flex flex-col gap-16 w-full box-border">
+      <main className="main-padding section-stack w-full box-border">
         <InputSection
           config={config}
           onChange={setConfig}
