@@ -57,7 +57,7 @@ export default function MetricsDashboard({ results }: Props) {
   }));
 
   return (
-    <div className="space-y-6 animate-fade-in">
+    <div className="space-y-10 animate-fade-in">
       {/* KPIs */}
       <div className="kpi-grid">
         <KPICard

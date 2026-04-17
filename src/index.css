@@ -79,7 +79,7 @@ body {
 /* Grilles responsive */
 .kpi-grid {
   display: grid;
-  gap: 1.25rem;
+  gap: 2rem;
   grid-template-columns: 1fr;
 }
 @media (min-width: 640px) {
@@ -90,7 +90,7 @@ body {
 
 .charts-grid {
   display: grid;
-  gap: 1.5rem;
+  gap: 2rem;
   grid-template-columns: 1fr;
 }
 @media (min-width: 1024px) {
@@ -101,7 +101,7 @@ body {
 
 .breakdown-grid {
   display: grid;
-  gap: 0.75rem;
+  gap: 2rem;
   grid-template-columns: 1fr;
 }
 @media (min-width: 640px) {
