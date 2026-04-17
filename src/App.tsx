@@ -46,7 +46,7 @@ export default function App() {
           <Logo className="h-9 w-auto sm:h-11" />
           <div className="hidden sm:block h-7 w-px bg-dark-border" />
           <span className="hidden sm:block text-[15px] text-gray-400 font-medium">
-            Arbitrage RH
+            Dois-je externaliser ?
           </span>
         </div>
         <button

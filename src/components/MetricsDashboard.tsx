@@ -47,7 +47,7 @@ export default function MetricsDashboard({ results }: Props) {
   const costData = MOIS.map((mois, i) => ({
     mois,
     Interne: results.coutsMensuelsInterne[i],
-    Agence: results.coutsMensuelsAgence[i],
+    Deluxe: results.coutsMensuelsAgence[i],
   }));
 
   const effData = MOIS.map((mois, i) => ({
@@ -145,7 +145,7 @@ export default function MetricsDashboard({ results }: Props) {
               />
               <Legend wrapperStyle={{ fontSize: 13, color: '#9ca3af', paddingTop: 8 }} />
               <Line type="monotone" dataKey="Interne" stroke="#f59e0b" strokeWidth={2.5} dot={false} />
-              <Line type="monotone" dataKey="Agence" stroke="#14b8cf" strokeWidth={2.5} dot={false} />
+              <Line type="monotone" dataKey="Deluxe" stroke="#14b8cf" strokeWidth={2.5} dot={false} />
             </LineChart>
           </ResponsiveContainer>
         </div>
