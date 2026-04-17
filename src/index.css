@@ -84,7 +84,13 @@ body {
 }
 @media (min-width: 640px) {
   .kpi-grid {
+    gap: 3rem;
     grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media (min-width: 1280px) {
+  .kpi-grid {
+    gap: 4rem;
   }
 }
 
@@ -95,17 +101,24 @@ body {
 }
 @media (min-width: 1024px) {
   .charts-grid {
+    gap: 3rem;
     grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (min-width: 1280px) {
+  .charts-grid {
+    gap: 4rem;
   }
 }
 
 .breakdown-grid {
   display: grid;
-  gap: 2rem;
+  gap: 1rem;
   grid-template-columns: 1fr;
 }
 @media (min-width: 640px) {
   .breakdown-grid {
+    gap: 3rem;
     grid-template-columns: repeat(2, 1fr);
   }
 }
@@ -124,7 +137,7 @@ body {
 @media (min-width: 1280px) {
   .filters-grid {
     grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
+    gap: 4rem;
   }
 }
 
