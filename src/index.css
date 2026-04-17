@@ -78,29 +78,29 @@ body {
 
 /* Espacements verticaux entre sections principales */
 .section-stack > * + * {
-  margin-top: 2rem;
+  margin-top: 1.5rem;
 }
 @media (min-width: 1024px) {
   .section-stack > * + * {
-    margin-top: 3rem;
+    margin-top: 2.25rem;
   }
 }
 
 .input-stack > * + * {
-  margin-top: 1.5rem;
+  margin-top: 1rem;
 }
 @media (min-width: 1024px) {
   .input-stack > * + * {
-    margin-top: 2rem;
+    margin-top: 1.5rem;
   }
 }
 
 .dashboard-stack > * + * {
-  margin-top: 2rem;
+  margin-top: 1.5rem;
 }
 @media (min-width: 1024px) {
   .dashboard-stack > * + * {
-    margin-top: 3rem;
+    margin-top: 2.25rem;
   }
 }
 
