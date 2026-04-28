@@ -236,22 +236,24 @@ export default function InputSection({ config, onChange, onReset }: Props) {
         </div>
 
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-[1fr_auto]">
-          {/* Slider jours + TJM */}
-          <div className="space-y-5">
-            <div className="space-y-3">
-              <Label>
-                Jours/mois par expert :{' '}
-                <span className="text-cyan font-bold normal-case tracking-normal">{config.joursParMois}j</span>
-              </Label>
-              <input
-                type="range" min={1} max={22} value={config.joursParMois}
-                onChange={(e) => update('joursParMois', +e.target.value)}
-                className="w-full"
-              />
-              <div className="flex justify-between text-[11px] text-gray-600">
-                <span>1j</span><span>11j</span><span>22j</span>
-              </div>
+          {/* Slider jours */}
+          <div className="space-y-3">
+            <Label>
+              Jours/mois par expert :{' '}
+              <span className="text-cyan font-bold normal-case tracking-normal">{config.joursParMois}j</span>
+            </Label>
+            <input
+              type="range" min={1} max={22} value={config.joursParMois}
+              onChange={(e) => update('joursParMois', +e.target.value)}
+              className="w-full"
+            />
+            <div className="flex justify-between text-[11px] text-gray-600">
+              <span>1j</span><span>11j</span><span>22j</span>
             </div>
+          </div>
+
+          {/* Colonne droite : TJM éditable + Récap chiffré */}
+          <div className="space-y-3 min-w-[220px]">
             <div>
               <Label>TJM expert (€/jour)</Label>
               <div className="flex items-center gap-2">
@@ -277,23 +279,22 @@ export default function InputSection({ config, onChange, onReset }: Props) {
                 Défaut {config.domaine} : <span className="text-gray-400">{fmt(tjmDefault)} €</span>
               </p>
             </div>
-          </div>
 
-          {/* Récapitulatif chiffré */}
-          <div className="rounded-xl p-4 border border-cyan/15 min-w-[220px]" style={{ background: 'rgba(20,184,207,0.04)' }}>
-            <div className="space-y-2.5">
-              <div className="flex justify-between text-[13px]">
-                <span className="text-gray-500">TJM {config.domaine}</span>
-                <span className="text-cyan-light font-semibold">{fmt(tjm)} €</span>
-              </div>
-              <div className="flex justify-between text-[13px]">
-                <span className="text-gray-500">Budget mensuel</span>
-                <span className="text-cyan-light font-semibold">{fmt(coutAgenceMois)} €</span>
-              </div>
-              <div className="h-px bg-dark-border/30 my-1" />
-              <div className="flex justify-between text-[13px]">
-                <span className="text-gray-500">Budget annuel</span>
-                <span className="text-cyan font-bold">{fmt(coutAgenceMois * 12)} €</span>
+            <div className="rounded-xl p-4 border border-cyan/15" style={{ background: 'rgba(20,184,207,0.04)' }}>
+              <div className="space-y-2.5">
+                <div className="flex justify-between text-[13px]">
+                  <span className="text-gray-500">TJM {config.domaine}</span>
+                  <span className="text-cyan-light font-semibold">{fmt(tjm)} €</span>
+                </div>
+                <div className="flex justify-between text-[13px]">
+                  <span className="text-gray-500">Budget mensuel</span>
+                  <span className="text-cyan-light font-semibold">{fmt(coutAgenceMois)} €</span>
+                </div>
+                <div className="h-px bg-dark-border/30 my-1" />
+                <div className="flex justify-between text-[13px]">
+                  <span className="text-gray-500">Budget annuel</span>
+                  <span className="text-cyan font-bold">{fmt(coutAgenceMois * 12)} €</span>
+                </div>
               </div>
             </div>
           </div>
