@@ -10,6 +10,10 @@ import type { SimulationConfig, SimulationResults } from '../types';
 import { CHARGE_RATES } from '../data/charges';
 import { getTJM } from '../data/tjm';
 
+function resolveTJM(config: SimulationConfig): number {
+  return config.tjm > 0 ? config.tjm : getTJM(config.domaine);
+}
+
 // ---------------------------------------------------------------------------
 // Courbes de productivité (% d'efficacité par mois)
 // ---------------------------------------------------------------------------
@@ -55,7 +59,7 @@ function getEfficaciteInterne(mois: number, typeContrat: string): number {
 
 export function computeResults(config: SimulationConfig): SimulationResults {
   const chargeRate = CHARGE_RATES[config.typeContrat];
-  const tjm = getTJM(config.domaine);
+  const tjm = resolveTJM(config);
 
   // Coûts unitaires mensuels
   const salaireCharge = config.salaireBrut * chargeRate;

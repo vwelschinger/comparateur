@@ -5,7 +5,7 @@ import InputSection from './components/InputSection';
 import MetricsDashboard from './components/MetricsDashboard';
 import ContactModal from './components/ContactModal';
 import { computeResults } from './services/calculateur';
-import { getPostesParDomaine, getSalaireSuggere } from './data';
+import { getPostesParDomaine, getSalaireSuggere, getTJM } from './data';
 import type { SimulationConfig } from './types';
 
 const defaultDomaine = 'Commerce';
@@ -26,6 +26,7 @@ const DEFAULT_CONFIG: SimulationConfig = {
   tauxHoraireManager: 75,
   heuresFormationSemaine: 6,
   joursParMois: 8,
+  tjm: getTJM(defaultDomaine),
 };
 
 export default function App() {

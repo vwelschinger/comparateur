@@ -42,7 +42,8 @@ export default function InputSection({ config, onChange, onReset }: Props) {
     [config.domaine, config.titrePoste, config.seniorite],
   );
 
-  const tjm = useMemo(() => getTJM(config.domaine), [config.domaine]);
+  const tjm = config.tjm;
+  const tjmDefault = useMemo(() => getTJM(config.domaine), [config.domaine]);
   const salaireCharge = config.salaireBrut * CHARGE_RATES[config.typeContrat];
   const coutAgenceMois = config.joursParMois * tjm;
 
@@ -53,6 +54,7 @@ export default function InputSection({ config, onChange, onReset }: Props) {
       if (newPostes.length > 0 && !newPostes.includes(next.titrePoste)) {
         next.titrePoste = newPostes[0];
       }
+      next.tjm = getTJM(value as string);
     }
     if (key === 'domaine' || key === 'titrePoste' || key === 'seniorite' || key === 'typeContrat') {
       const suggestion = getSalaireSuggere(next.domaine, next.titrePoste, next.seniorite, next.typeContrat);
@@ -234,19 +236,46 @@ export default function InputSection({ config, onChange, onReset }: Props) {
         </div>
 
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-[1fr_auto]">
-          {/* Slider jours */}
-          <div className="space-y-3">
-            <Label>
-              Jours/mois par expert :{' '}
-              <span className="text-cyan font-bold normal-case tracking-normal">{config.joursParMois}j</span>
-            </Label>
-            <input
-              type="range" min={1} max={22} value={config.joursParMois}
-              onChange={(e) => update('joursParMois', +e.target.value)}
-              className="w-full"
-            />
-            <div className="flex justify-between text-[11px] text-gray-600">
-              <span>1j</span><span>11j</span><span>22j</span>
+          {/* Slider jours + TJM */}
+          <div className="space-y-5">
+            <div className="space-y-3">
+              <Label>
+                Jours/mois par expert :{' '}
+                <span className="text-cyan font-bold normal-case tracking-normal">{config.joursParMois}j</span>
+              </Label>
+              <input
+                type="range" min={1} max={22} value={config.joursParMois}
+                onChange={(e) => update('joursParMois', +e.target.value)}
+                className="w-full"
+              />
+              <div className="flex justify-between text-[11px] text-gray-600">
+                <span>1j</span><span>11j</span><span>22j</span>
+              </div>
+            </div>
+            <div>
+              <Label>TJM expert (€/jour)</Label>
+              <div className="flex items-center gap-2">
+                <input
+                  type="number" value={config.tjm}
+                  onChange={(e) => update('tjm', +e.target.value)}
+                  className={inputClass} step={50} min={0}
+                />
+                {config.tjm !== tjmDefault && (
+                  <button
+                    type="button"
+                    onClick={() => update('tjm', tjmDefault)}
+                    className="btn-icon flex items-center gap-1.5 text-[11px] flex-shrink-0"
+                    title={`Restaurer le TJM par défaut (${fmt(tjmDefault)} €)`}
+                    style={{ padding: '0.4rem 0.7rem' }}
+                  >
+                    <RotateCcw size={11} />
+                    {fmt(tjmDefault)} €
+                  </button>
+                )}
+              </div>
+              <p className="text-[11px] text-gray-600 mt-1.5">
+                Défaut {config.domaine} : <span className="text-gray-400">{fmt(tjmDefault)} €</span>
+              </p>
             </div>
           </div>
 

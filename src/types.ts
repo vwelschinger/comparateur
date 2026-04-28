@@ -14,6 +14,7 @@ export interface SimulationConfig {
   tauxHoraireManager: number;
   heuresFormationSemaine: number;
   joursParMois: number;
+  tjm: number;
 }
 
 export interface CoutBreakdown {
